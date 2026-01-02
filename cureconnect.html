@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>CureConnect | Medical Store</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        .testimonial-card {
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            background: #ffffff;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-card img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border: 4px solid #0d6efd;
+        }
+
+        :root {
+            --primary: #2b7cff;
+            --secondary: #1c1c1c;
+            --light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--primary);
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #fff !important;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(207, 221, 243, 0.85), rgba(78, 90, 110, 0.85)),
+                url('image/hospital.jfif');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        /* Cards */
+        .card {
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Buttons */
+        .btn-custom {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-custom:hover {
+            background: #155edb;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        footer a {
+            color: #8ab4ff;
+            text-decoration: none;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: #eee;
+        }
+
+        body.dark-mode section,
+        body.dark-mode .card {
+            background-color: #1e1e1e;
+            color: #eee;
+        }
+
+        .cardd {
+            height: 450px;
+        }
+
+        .roud {
+            border-radius: 30px;
+        }
+
+        .roud:hover {
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 80px 0;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-card h1 {
+            font-weight: 700;
+            color: #2d3250;
+        }
+
+        .contact-info li {
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #444;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            color: #52658f;
+            margin-right: 14px;
+            font-size: 18px;
+        }
+
+        /* Form Styling */
+        .form-control {
+            border-radius: 12px;
+            padding: 12px 14px;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #52658f;
+            box-shadow: 0 0 0 0.25rem rgba(82, 101, 143, 0.2);
+        }
+
+        /* Button */
+        .contact-btn {
+            background: #52658f;
+            color: #fff;
+            font-weight: 600;
+            padding: 14px;
+            border-radius: 12px;
+            transition: 0.3s ease;
+            border: none;
+        }
+
+        .contact-btn:hover {
+            background: #333a56;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .responsive-map {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            /* 16:9 ratio */
+            height: 0;
+        }
+
+        .responsive-map iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">CureConnect</a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#services">Services</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container-fluid p-5 m-5">
+            <div class="container p-5 m-5 text-dark">
+                <h1>Your Health, Our Priority</h1>
+                <p class="mt-3">Trusted medicines • Certified healthcare products • Fast support</p>
+                <a href="#products" class="btn btn-custom btn-lg mt-4">Explore Products</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container-fluid d-flex justify-content-center">
+            <div class="container m-5 ">
+                <h2 class="section-title">About CureConnect</h2><br><br>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p>
+                            We are a trusted <strong>medicine store</strong> dedicated to providing genuine medicines
+                            and essential healthcare products to our customers. Our focus is on maintaining quality,
+                            safety, and reliability while ensuring that every product meets approved medical standards.
+                        </p>
+
+                        <p>
+                            With a commitment to accurate dispensing and professional service, we aim to support
+                            our customers with the right medicines and guidance. Our experienced staff works carefully
+                            to ensure timely service and clear assistance for all healthcare needs.
+                        </p>
+
+                        <p>
+                            We are passionate about promoting health and well-being within our community.
+                            Our goal is to become a dependable healthcare partner by delivering trusted products,
+                            responsible service, and a customer-first approach that makes healthcare accessible
+                            and stress-free.
+                        </p>
+
+                    </div>
+                    <div class="col-md-6 ">
+                        <div  class="p-5">
+
+                            <img src="image/room.jfif" class="img-fluid roud" alt="Medical Store">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Services
+    <section id="services" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <h5>Prescription Medicines</h5>
+                        <p>Certified and doctor-approved medicines available.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <h5>Health Consultation</h5>
+                        <p>Basic guidance and product recommendations.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <h5>Home Delivery</h5>
+                        <p>Fast and safe doorstep delivery of medicines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Products -->
+    <section id="products">
+        <div class="container"><br>
+            <h2 class="section-title">Popular Products</h2><br><br>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card cardd">
+                        <img src="image/pain_resize.png" class="card-img-top" alt="Medicine">
+                        <div class="card-body">
+                            <h5>Pain Relief Tablets</h5>
+                            <p>Effective relief with trusted quality.</p>
+                            <a href="#" class="btn btn-custom">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card cardd">
+                        <img src="image/tube.jfif" class="card-img-top" alt="Vitamins">
+                        <div class="card-body">
+                            <h5>Vitamin Supplements</h5>
+                            <p>Boost immunity and overall wellness.</p>
+                            <a href="#" class="btn btn-custom">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card cardd">
+                        <img src="image/doctor.jfif" class="card-img-top" alt="Medical Tools">
+                        <div class="card-body">
+                            <h5>Medical Devices</h5>
+                            <p>BP monitors, thermometers & more.</p>
+                            <a href="#" class="btn btn-custom">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container mt-5">
+            <h2 class="text-center mb-5 fw-bold">What Our Customers Say</h2>
+
+            <div class="row g-4 p-5">
+
+                <!-- Testimonial 1 -->
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 shadow-sm p-4 text-center">
+                        <img src="image/1003.jfif" class="rounded-circle mx-auto mb-3" alt="Ankit">
+                        <h5 class="mb-0">Ankit Sharma</h5>
+                        <small class="text-muted">Regular Customer</small>
+
+                        <div class="mt-2 text-warning">
+                            ★★★★★
+                        </div>
+
+                        <p class="mt-3">
+                            “Reliable medicines, genuine products, and quick delivery.
+                            CureConnect has never disappointed me.”
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 shadow-sm p-4 text-center">
+                        <img src="image/1002.jfif" class="rounded-circle mx-auto mb-3" alt="Riya">
+                        <h5 class="mb-0">Riya Mehta</h5>
+                        <small class="text-muted">Healthcare Professional</small>
+
+                        <div class="mt-2 text-warning">
+                            ★★★★☆
+                        </div>
+
+                        <p class="mt-3">
+                            “Very helpful staff and well-organized service.
+                            I always recommend CureConnect to my patients.”
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 shadow-sm p-4 text-center">
+                        <img src="image/1001.jfif" class="rounded-circle mx-auto mb-3" alt="Mohit">
+                        <h5 class="mb-0">Mohit Verma</h5>
+                        <small class="text-muted">Long-term Client</small>
+
+                        <div class="mt-2 text-warning">
+                            ★★★★★
+                        </div>
+
+                        <p class="mt-3">
+                            “CureConnect is my go-to medical store.
+                            Great quality, fair pricing, and trusted service.”
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact -->
+    <!-- <section id="contact">
+        <div class="container mt-5">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form>
+                        <input type="text" class="form-control mb-3" placeholder="Your Name" required>
+                        <input type="email" class="form-control mb-3" placeholder="Email Address" required>
+                        <textarea class="form-control mb-3" rows="4" placeholder="Your Message" required></textarea>
+                        <button class="btn btn-custom">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Email:</strong> support@cureconnect.com</p>
+                    <p><strong>Phone:</strong> +91 98765 43210</p>
+                    <p><strong>Address:</strong> Health Street, India</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Contact Me -->
+    <section class="container-fluid" id="contact">
+        <div class="container">
+            <div class="row g-5 align-items-stretch">
+
+
+                <!-- Right Form -->
+                <div class="col-12 col-md-6">
+                    <div class="contact-card h-100 p-4 p-lg-5">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" placeholder="Enter your name">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" placeholder="Enter phone number">
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" rows="4" style="resize: none;"
+                                    placeholder="Write your message"></textarea>
+                            </div>
+
+                            <button type="submit" class="contact-btn w-100">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+
+                <!-- Left Info -->
+                <div class="col-12 col-md-6">
+                    <div class="contact-card h-100 p-4 p-lg-5 align-items-center ">
+                        <h1 class="mb-4">Contact Me</h1>
+
+                        <p class="text-muted mb-4 ">
+                            Feel free to reach out for collaboration, project ideas,
+                            or professional opportunities. I’d love to connect with you.
+                        </p>
+
+                        <ul class="list-unstyled contact-info">
+                            <li>
+
+
+                                <p style="font-size: 18px;"><i class="fa-solid fa-envelope "
+                                        style="font-size: 20px;"></i><strong>Email:</strong> support@cureconnect.com
+                                </p>
+
+
+
+                            </li>
+                            <li>
+                                <p style="font-size: 18px;"> <i class="fa-solid fa-phone" style="font-size: 20px;"></i>
+                                    <strong>Phone:</strong> +91 98765 43210
+                                </p>
+                            </li>
+                            <li>
+                                <p style="font-size: 18px;"> <i class="fa-solid fa-location-dot"
+                                        style="font-size: 20px;"></i>
+                                    <strong>Address:</strong> Health Street, India
+                                </p>
+                            </li>
+                        </ul>
+                        <!-- here  -->
+                        <div class="responsive-map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.03293183286!2d79.11045927520082!3d21.151087683565876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c7780900a769%3A0xa800845da98a0a60!2sCure%20Connect!5e0!3m2!1sen!2sin!4v1767130569103!5m2!1sen!2sin"></iframe>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-primary">
+        <div class="container text-center ">
+            <p>&copy; 2025 CureConnect. All Rights Reserved.</p>
+            <p>
+                <a href="#" class="text-light">Facebook</a> |
+                <a href="#" class="text-light">Instagram</a> |
+                <a href="#" class="text-light">Twitter</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+</body>
+
+</html>
